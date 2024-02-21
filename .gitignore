@@ -1,0 +1,4 @@
+# Specific file to ignore
+appsettings.json 
+bin/
+obj/
