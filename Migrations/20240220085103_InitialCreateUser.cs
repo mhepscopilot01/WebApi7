@@ -28,7 +28,7 @@ namespace WebApi7.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_Users1", x => x.Id);
                 });
         }
 
