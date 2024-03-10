@@ -13,7 +13,12 @@ var builder = WebApplication.CreateBuilder(args); // CreateBuilder ile WebApplic
 
 builder.Services.AddControllers(); // AddControllers ile Controller'ları ekliyoruz
 
+
+//Buradayim.. 
 builder.Services.AddScoped<IAuthService, AuthService>(); // AddScoped ile AuthService'i ekliyoruz
+
+
+
 
 // Add DbContext Service (Modify placeholders as needed)
 
@@ -77,9 +82,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = builder.Configuration["Jwt:Issuer"], // ValidIssuer ile Issuer'ı belirliyoruz
             ValidateAudience = true, // ValidateAudience ile Audience'ı doğruluyoruz
             ValidAudience = builder.Configuration["Jwt:Audience"], // ValidAudience ile Audience'ı belirliyoruz
-            ValidateLifetime = true, // ValidateLifetime ile Token'ın süresini doğruluyoruz
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? string.Empty)), // IssuerSigningKey ile Key'i belirliyoruz
-            ValidateIssuerSigningKey = true // ValidateIssuerSigningKey ile Key'i doğruluyoruz.
+            ValidateIssuerSigningKey = true, // ValidateIssuerSigningKey ile Key'i doğruluyoruz.
+            ValidateLifetime = true, // ValidateLifetime ile Token'ın süresini doğruluyoruz
+            ClockSkew = TimeSpan.FromMinutes(5), // ClockSkew ile Token'ın süresini belirliyoruz
         };
     });
 

@@ -6,8 +6,8 @@ namespace WebApi7.Data
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { } // Constructor
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; } // This is the table in the database
     }
 }

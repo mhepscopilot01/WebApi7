@@ -17,7 +17,7 @@ namespace WebApi7.Controllers
             _context = context;
         }
 
-        [HttpGet("connection")]
+        [HttpGet("connection")] // api/test/connection
         public async Task<IActionResult> TestConnection()
         {
             try
